@@ -18,7 +18,7 @@ public  class Ball2 extends JPanel implements ActionListener, KeyListener {
 	  Random rand=new Random();
       int x = 0, y = 0;
       int anglex =100, angley = 100;
-      
+      new Oval = Oval;
     
           private void move() {
               if (x + anglex < 0) {
@@ -39,7 +39,7 @@ public  class Ball2 extends JPanel implements ActionListener, KeyListener {
      @Override
      public void paint(Graphics g) {
     	 g.setColor(new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256)));
-         g.fillOval(x, y, 50, 50);
+         g.fillOval( x, y, 50, 50); 
      }
      
      public static void main(String[] args) throws InterruptedException { 
@@ -59,8 +59,22 @@ public  class Ball2 extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			Oval.setLocation(Oval.x +2, Oval.y);
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			
+		}
 	}
 
 	@Override
