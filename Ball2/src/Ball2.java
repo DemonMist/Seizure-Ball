@@ -18,8 +18,11 @@ public  class Ball2 extends JPanel implements ActionListener, KeyListener {
 	  Random rand=new Random();
       int x = 0, y = 0;
       int anglex =100, angley = 100;
-      new Oval = Oval;
-    
+      
+      static JFrame frame;
+      static Ball2 app;
+
+    		 
           private void move() {
               if (x + anglex < 0) {
                   anglex = rand.nextInt(10);
@@ -43,50 +46,61 @@ public  class Ball2 extends JPanel implements ActionListener, KeyListener {
      }
      
      public static void main(String[] args) throws InterruptedException { 
-     JFrame frame = new JFrame("Moving Ball");
-     Ball2 app = new Ball2();
-     frame.add(app);
-     frame.setSize(500, 500);
-     frame.setVisible(true);
-     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-     while(true) {
-         app.move();
-         app.repaint();
-         Thread.sleep(10);
-         }
+    	 frame = new JFrame("Moving Ball");
+    	 app = new Ball2();
+    	 app.init();
 }
+     
+     public void init() throws InterruptedException {
+         
+         
+         frame.add(app);
+         frame.setSize(500, 500);
+         frame.setVisible(true);
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         app.addKeyListener(this);
+         
+         //frame.addKeyListener(this);
+        
+         while(true) {
+             app.move();
+             app.repaint();
+             Thread.sleep(10);
+             }
+     }
 
 	@Override
 	public void keyTyped(KeyEvent e) {
+				int key = e.getKeyCode();
+				
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
-			Oval.setLocation(Oval.x +2, Oval.y);
+		
+			x += 200;
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			
+			x -= 200;
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_UP)
 		{
-			
+			y += 200;
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
-			
+			y -= 200;
 		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
